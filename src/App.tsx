@@ -14,6 +14,9 @@ import CorporateCredentials from './pages/CorporateCredentials'
 import Support from './pages/Support'
 import DataDeletion from './pages/DataDeletion'
 import Careers from './pages/Career'
+import Disclaimer from './pages/Disclaimer'
+import AppPrivacy from './pages/AppPrivacy'
+import RefundPolicy from './pages/RefundPolicy'
 
 function App() {
 
@@ -35,6 +38,9 @@ function App() {
           <Route path="/corporate-credentials" element={<CorporateCredentials />} />
           <Route path="/support" element={<Support />} />
           <Route path="/data-deletion" element={<DataDeletion />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/app-privacy" element={<AppPrivacy />} />
+          <Route path="/refund-cancellation-policy" element={<RefundPolicy />} />
           <Route path="/career" element={<Careers />} />
 
         <Route path="*" element={<NotFound />} />

@@ -1,12 +1,11 @@
 import { useState } from "react";
 
 const steps = [
-    "Personal",
-    "Preferences",
-    "Professional",
-    "Projects",
-    "Education",
-    "Additional"
+    "Personal",     // 0
+    "Preferences",  // 1
+    "Professional", // 2
+    "Projects & Education",// 3
+    "Finalize"      // 4
 ];
 
 type InputProps = {
@@ -117,7 +116,7 @@ export default function Careers() {
     const [form, setForm] = useState<any>({
         fullName: "",
         phone: "",
-        city: "",
+        // city: "",
 
         workType: "",
         workMode: "",
@@ -132,14 +131,17 @@ export default function Careers() {
 
         projects: "",
 
-        tenth: "",
-        twelfth: "",
-        ug: "",
-        pg: "",
 
+        // tenth: "",
+        // twelfth: "",
+        // ug: "",
+        // pg: "",
+
+
+        academic: "",
         vehicle: "",
         family: "",
-        about: "",
+        // about: "",
         address: ""
     });
 
@@ -158,13 +160,12 @@ export default function Careers() {
         if (step === 0) {
             if (!form.fullName) e.fullName = "Required";
             if (form.phone.length !== 10) e.phone = "Enter valid 10 digit phone";
-            if (!form.city) e.city = "Required";
+            if (!form.salary) e.salary = "Required";
         }
 
         if (step === 1) {
             if (!form.workType) e.workType = "Required";
             if (!form.workMode) e.workMode = "Required";
-            if (!form.salary) e.salary = "Required";
             if (!form.timings) e.timings = "Required";
             if (!form.location) e.location = "Required";
         }
@@ -178,19 +179,14 @@ export default function Careers() {
 
         if (step === 3) {
             if (!form.projects) e.projects = "Required";
+            if (!form.academic) e.academic = "Required: Please provide 10th, 12th, UG, and PG details.";
+            if (!form.family) e.family = "Required";
+
         }
+
 
         if (step === 4) {
-            if (!form.tenth) e.tenth = "Required";
-            if (!form.twelfth) e.twelfth = "Required";
-            // if (!form.ug) e.ug = "Required";
-            // if (!form.pg) e.pg = "Required";
-        }
-
-        if (step === 5) {
             if (!form.vehicle) e.vehicle = "Required";
-            if (!form.family) e.family = "Required";
-            if (!form.about) e.about = "Required";
             if (!form.address) e.address = "Required";
         }
 
@@ -218,7 +214,8 @@ export default function Careers() {
         if (!validateStep()) return;
 
         setIsSubmitting(true);
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyFvP_1Adsk-LkK0qvNw1PRnbq6gS0qVWIhapnyGyXyIKIXdESbd-bB43WV3rVdWek/exec";
+        // const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyFvP_1Adsk-LkK0qvNw1PRnbq6gS0qVWIhapnyGyXyIKIXdESbd-bB43WV3rVdWek/exec";
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz_nJV9LuJzUHBALVJUTJtuFEPu5MaUiSHm_QdLZtImZGqBjfXCjUQWqqPBIRQ9zXo/exec";
 
         try {
             const res = await fetch(SCRIPT_URL, {
@@ -230,7 +227,6 @@ export default function Careers() {
 
             console.log("res", res)
 
-            // setIsSuccess(true);
             setIsSuccess(true);
 
             // Reset the form and go to Step 1 after 5 seconds
@@ -238,10 +234,34 @@ export default function Careers() {
                 setIsSuccess(false);
                 setStep(0);
                 setForm({
-                    fullName: "", phone: "", city: "", workType: "", workMode: "",
-                    salary: "", timings: "", location: "", roles: "", skills: "",
-                    tasks: "", languages: "", projects: "", tenth: "", twelfth: "",
-                    ug: "", pg: "", vehicle: "", family: "", about: "", address: ""
+                    fullName: "",
+                    phone: "",
+                    // city: "",
+
+                    workType: "",
+                    workMode: "",
+                    salary: "",
+                    timings: "",
+                    location: "",
+
+                    roles: "",
+                    skills: "",
+                    tasks: "",
+                    languages: "",
+
+                    projects: "",
+
+
+                    // tenth: "",
+                    // twelfth: "",
+                    // ug: "",
+                    // pg: "",
+
+
+                    academic: "",
+                    vehicle: "",
+                    family: "",
+                    address: ""
                 });
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 5000);
@@ -268,7 +288,7 @@ export default function Careers() {
                     Step {step + 1} of {steps.length} — {steps[step]}
                 </p>
 
-                <form className="space-y-8"  onSubmit={handleSubmit}>
+                <form className="space-y-8" onSubmit={handleSubmit}>
 
                     {/* STEP 1 */}
                     {step === 0 && (
@@ -293,10 +313,12 @@ export default function Careers() {
                             />
 
                             <Input
-                                label="Current City of Residence"
-                                value={form.city}
-                                onChange={(e) => handleChange("city", e.target.value)}
-                                error={errors.city}
+                                label="Expected Monthly Salary (INR)"
+                                value={form.salary}
+                                onChange={(e) =>
+                                    handleChange("salary", e.target.value.replace(/\D/g, ""))
+                                }
+                                error={errors.salary}
                             />
                         </>
                     )}
@@ -320,15 +342,7 @@ export default function Careers() {
                             />
                             {errors.workMode && <p className="text-xs text-red-500">{errors.workMode}</p>}
 
-                            <Input
-                                label="Expected Monthly Salary (INR)"
-                                value={form.salary}
-                                onChange={(e) =>
-                                    handleChange("salary", e.target.value.replace(/\D/g, ""))
-                                }
-                                error={errors.salary}
-                            />
-
+                           
                             <Input
                                 label="Preferred Work Timings"
                                 value={form.timings}
@@ -349,7 +363,7 @@ export default function Careers() {
                     {step === 2 && (
                         <>
                             <Textarea
-                                label="Roles & Responsibilities (Explain in Detail)"
+                                label="What are the roles you have performed ?Explain in detail"
                                 value={form.roles}
                                 onChange={(e) => handleChange("roles", e.target.value)}
                                 error={errors.roles}
@@ -380,49 +394,35 @@ export default function Careers() {
 
                     {/* STEP 4 */}
                     {step === 3 && (
-                        <Textarea
-                            label="Projects You Have Worked On"
-                            value={form.projects}
-                            onChange={(e) => handleChange("projects", e.target.value)}
-                            error={errors.projects}
-                        />
-                    )}
-
-                    {/* STEP 5 */}
-                    {step === 4 && (
                         <>
-                            <Input
-                                label="10th Marks / Percentage"
-                                value={form.tenth}
-                                onChange={(e) => handleChange("tenth", e.target.value)}
-                                error={errors.tenth}
+                            <Textarea
+                                label="Projects You Have Worked On"
+                                value={form.projects}
+                                onChange={(e) => handleChange("projects", e.target.value)}
+                                error={errors.projects}
                             />
 
-                            <Input
-                                label="12th Marks / Percentage"
-                                value={form.twelfth}
-                                onChange={(e) => handleChange("twelfth", e.target.value)}
-                                error={errors.twelfth}
+                            <Textarea
+                                label="About yourselves, your academic performance , marks scored in 10th,12th , UG and PG"
+                                value={form.academic}
+                                onChange={(e) => handleChange("academic", e.target.value)}
+                                error={errors.academic}
                             />
 
-                            <Input
-                                label="UG Details & Marks"
-                                value={form.ug}
-                                onChange={(e) => handleChange("ug", e.target.value)}
-                                error={errors.ug}
-                            />
 
-                            <Input
-                                label="PG Details & Marks"
-                                value={form.pg}
-                                onChange={(e) => handleChange("pg", e.target.value)}
-                                error={errors.pg}
+                            <Textarea
+                                label="Family details (About parents, siblings)"
+                                value={form.family}
+                                onChange={(e) => handleChange("family", e.target.value)}
+                                error={errors.family}
                             />
                         </>
                     )}
 
+
+
                     {/* STEP 6 */}
-                    {step === 5 && (
+                    {step === 4 && (
                         <>
                             <RadioGroup
                                 label="Do you have a Driving License and Vehicle?"
@@ -432,19 +432,19 @@ export default function Careers() {
                             />
                             {errors.vehicle && <p className="text-xs text-red-500">{errors.vehicle}</p>}
 
-                            <Textarea
+                            {/* <Textarea
                                 label="Family Details (Parents & Siblings)"
                                 value={form.family}
                                 onChange={(e) => handleChange("family", e.target.value)}
                                 error={errors.family}
-                            />
+                            /> */}
 
-                            <Textarea
+                            {/* <Textarea
                                 label="About Yourself"
                                 value={form.about}
                                 onChange={(e) => handleChange("about", e.target.value)}
                                 error={errors.about}
-                            />
+                            /> */}
 
                             <Textarea
                                 label="Residential Address"
@@ -500,11 +500,11 @@ export default function Careers() {
                                 // onClick={handleSubmit}
                                 disabled={isSubmitting || isSuccess}
                                 className={`px-8 py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all ${isSuccess
-                                        ? "bg-green-600 text-white cursor-default"
-                                        : "bg-[#e51c23] text-white hover:brightness-110 shadow-lg shadow-red-500/20 disabled:bg-gray-300"
+                                    ? "bg-green-600 text-white cursor-default"
+                                    : "bg-[#e51c23] text-white hover:brightness-110 shadow-lg shadow-red-500/20 disabled:bg-gray-300"
                                     }`}
                             >
-                                {isSubmitting ? "Processing..." : isSuccess ? "Success!" : "Submit Application"}
+                                {isSubmitting ? "Processing..." : isSuccess ? "Success!" : "Submit"}
                             </button>
                         )}
                     </div>
@@ -514,7 +514,7 @@ export default function Careers() {
                         {isSuccess && (
                             <div className="p-4 bg-green-50 border border-green-100 rounded-lg flex items-center gap-3 text-green-700 animate-fade-in">
                                 <i className="fa-solid fa-circle-check"></i>
-                                <p className="text-sm font-medium">Application submitted! Resetting form in 5 seconds...</p>
+                                <p className="text-sm font-medium">Application submitted! We will contact you soon ...</p>
                             </div>
                         )}
 
