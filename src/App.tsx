@@ -17,12 +17,14 @@ import Careers from './pages/Career'
 import Disclaimer from './pages/Disclaimer'
 import AppPrivacy from './pages/AppPrivacy'
 import RefundPolicy from './pages/RefundPolicy'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
 
   return (
 
     <>
+      <ScrollToTop /> {/* 2. Add it here */}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,18 +32,18 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         {/* Legal & Compliance (Required for DUNS/Meta) */}
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-use" element={<TermsOfUse />} />
-          <Route path="/cookie-policy" element={<CookiePolicy />} />
-          
-          {/* Business & Support (Required for App Stores) */}
-          <Route path="/corporate-credentials" element={<CorporateCredentials />} />
-          <Route path="/support" element={<Support />} />
-          <Route path="/data-deletion" element={<DataDeletion />} />
-          <Route path="/disclaimer" element={<Disclaimer />} />
-          <Route path="/app-privacy" element={<AppPrivacy />} />
-          <Route path="/refund-cancellation-policy" element={<RefundPolicy />} />
-          <Route path="/career" element={<Careers />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
+
+        {/* Business & Support (Required for App Stores) */}
+        <Route path="/corporate-credentials" element={<CorporateCredentials />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/data-deletion" element={<DataDeletion />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
+        <Route path="/app-privacy" element={<AppPrivacy />} />
+        <Route path="/refund-cancellation-policy" element={<RefundPolicy />} />
+        <Route path="/career" element={<Careers />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

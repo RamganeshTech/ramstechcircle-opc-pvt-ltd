@@ -1,67 +1,195 @@
 
 
+// import { Link } from 'react-router-dom';
+
+// export default function Footer() {
+//   const brandRed = "#e51c23";
+//   const currentYear = new Date().getFullYear();
+
+//   return (
+//     <footer className="w-full bg-black text-white pt-20 pb-10 font-poppins">
+//       {/* Upper Footer: Main Content */}
+//       <div className="w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+        
+//         {/* Brand Column */}
+//         <div className="md:col-span-5">
+//           <Link to="/" className="flex items-center gap-3 mb-6 group">
+//             <img 
+//               src="/public/logo.png" 
+//               alt="Ramstechcircleopc Logo" 
+//               className="h-12 w-auto transition-transform group-hover:scale-105" 
+//             />
+//             <span className={`text-[${brandRed}] text-lg md:text-2xl font-bold tracking-tight uppercase`}>
+//               Rams tech circle opc
+//             </span>
+//           </Link>
+//           <p className="text-gray-400 max-w-md text-sm md:text-lg leading-relaxed">
+//             Building the next generation of secure, high-performance static 
+//             infrastructure. We transform complex web requirements into 
+//             seamless digital experiences.
+//           </p>
+          
+         
+//         </div>
+
+//         {/* Links Column 1: Navigation */}
+//         <div className="md:col-span-3">
+//           <h4 className="text-sm font-bold uppercase tracking-widest mb-8 text-gray-200">
+//             Quick Links
+//           </h4>
+//           <ul className="space-y-4">
+//             {[
+//               { name: 'Home', path: '/' },
+//               { name: 'About', path: '/about' },
+//               { name: 'Services', path: '/services' },
+//               { name: 'Contact', path: '/contact' },
+//               { name: 'Support', path: '/support' },
+//               { name: 'Career', path: '/career' }
+//             ].map((link) => (
+//               <li key={link.name}>
+//                 <Link 
+//                   to={link.path} 
+//                   className="text-gray-400 hover:text-[#e51c23] transition-colors font-medium text-sm"
+//                 >
+//                   {link.name}
+//                 </Link>
+//               </li>
+//             ))}
+//           </ul>
+//         </div>
+
+//         {/* Links Column 2: Business & Support */}
+//         <div className="md:col-span-4">
+//           <h4 className="text-sm font-bold uppercase tracking-widest mb-8 text-gray-200">
+//             Support & Identity
+//           </h4>
+//           <div className="space-y-6">
+//             <ul className="space-y-4 mb-6">
+//                <li>
+//                  <Link to="/corporate-credentials" className="text-gray-400 hover:text-[#e51c23] transition-colors font-medium text-sm italic">
+//                    Corporate Credentials
+//                  </Link>
+//                </li>
+//                <li>
+//                  <Link to="/data-deletion" className="text-gray-400 hover:text-[#e51c23] transition-colors font-medium text-sm">
+//                    Data Deletion Request
+//                  </Link>
+//                </li>
+//             </ul>
+
+//             <a 
+//               href="mailto:rasmtechcircle@gmail.com" 
+//               className="flex items-center gap-4 group p-4 border border-gray-900 rounded-sm hover:border-[#e51c23]/30 transition-all"
+//             >
+//               <div style={{ color: brandRed }} className="text-xl">
+//                 <i className="fa-solid fa-envelope"></i>
+//               </div>
+//               <div>
+//                 <p className="text-xs text-gray-500 uppercase font-bold tracking-tighter">Email Us</p>
+//                 <p className="text-sm text-gray-200 font-bold group-hover:text-[#e51c23] transition-colors">
+//                   rasmtechcircle@gmail.com
+//                 </p>
+//               </div>
+//             </a>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Bottom Footer: Legal Compliance Links */}
+//       <div className="w-full px-6 md:px-12 pt-8 border-t border-gray-900">
+//         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+//           <p className="text-gray-500 text-xs font-medium">
+//             © {currentYear} <span className="text-gray-300">RAMSTECHCIRCLEOPC PVT LTD</span>. ALL RIGHTS RESERVED.
+//           </p>
+          
+//           <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-[10px] font-bold uppercase tracking-widest text-gray-500">
+//             <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+//             <Link to="/terms-of-use" className="hover:text-white transition-colors">Terms of Use</Link>
+//             <Link to="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
+//           </div>
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// }
+
+
+
+// src/components/Footer.tsx
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const brandRed = "#e51c23";
   const currentYear = new Date().getFullYear();
 
+  const quickLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'Support', path: '/support' },
+    { name: 'Career', path: '/career' }
+  ];
+
+  const complianceLinks = [
+    { name: 'App Privacy', path: '/app-privacy' },
+    { name: 'Refund Policy', path: '/refund-cancellation-policy' },
+    { name: 'Official Disclaimer', path: '/disclaimer' },
+    { name: 'Corporate Credentials', path: '/corporate-credentials' },
+    { name: 'Data Deletion Request', path: '/data-deletion' }
+  ];
+
+  const legalLinks = [
+    { name: 'Privacy Policy', path: '/privacy-policy' },
+    { name: 'Terms of Use', path: '/terms-of-use' },
+    { name: 'Cookie Policy', path: '/cookie-policy' }
+  ];
+
   return (
-    <footer className="w-full bg-black text-white pt-20 pb-10 font-poppins">
-      {/* Upper Footer: Main Content */}
+    <footer className="w-full bg-black text-white pt-20 pb-10 font-poppins border-t border-gray-900">
       <div className="w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
         
         {/* Brand Column */}
-        <div className="md:col-span-5">
+        <div className="md:col-span-4">
           <Link to="/" className="flex items-center gap-3 mb-6 group">
             <img 
-              src="/public/logo.png" 
+              src="/logo.png" 
               alt="Ramstechcircleopc Logo" 
-              className="h-12 w-auto transition-transform group-hover:scale-105" 
+              className="h-10 w-auto transition-transform group-hover:scale-105" 
             />
-            <span className={`text-[${brandRed}] text-lg md:text-2xl font-bold tracking-tight uppercase`}>
+            <span style={{ color: brandRed }} className="text-lg md:text-xl font-bold tracking-tight uppercase">
               Rams tech circle opc
             </span>
           </Link>
-          <p className="text-gray-400 max-w-md text-sm md:text-lg leading-relaxed">
-            Building the next generation of secure, high-performance static 
-            infrastructure. We transform complex web requirements into 
-            seamless digital experiences.
+          <p className="text-gray-400 max-w-sm text-sm leading-relaxed mb-8">
+            Building high-performance digital infrastructure. We transform complex corporate requirements into seamless, secure software experiences.
           </p>
           
-          {/* Social Icons (Font Awesome) */}
-          {/* <div className="flex gap-5 mt-8">
-            {['linkedin', 'x-twitter', 'github', 'instagram'].map((icon) => (
-              <a 
-                key={icon}
-                href="#" 
-                className="w-10 h-10 rounded-full border border-gray-800 flex items-center justify-center text-gray-400 hover:border-[#e51c23] hover:text-[#e51c23] transition-all"
-              >
-                <i className={`fa-brands fa-${icon}`}></i>
-              </a>
-            ))}
-          </div> */}
+          <a 
+            href="mailto:ramstechcircle@gmail.com" 
+            className="flex items-center gap-4 group p-4 border border-gray-900 rounded-sm hover:border-[#e51c23]/30 transition-all w-fit"
+          >
+            <div style={{ color: brandRed }} className="text-xl">
+              <i className="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <p className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Inquiries</p>
+              <p className="text-sm text-gray-200 font-bold group-hover:text-[#e51c23] transition-colors">
+                ramstechcircle@gmail.com
+              </p>
+            </div>
+          </a>
         </div>
 
-        {/* Links Column 1: Navigation */}
-        <div className="md:col-span-3">
-          <h4 className="text-sm font-bold uppercase tracking-widest mb-8 text-gray-200">
-            Quick Links
+        {/* Column 1: Navigation */}
+        <div className="md:col-span-2 md:ml-auto">
+          <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-8 text-gray-500">
+            Navigation
           </h4>
           <ul className="space-y-4">
-            {[
-              { name: 'Home', path: '/' },
-              { name: 'About', path: '/about' },
-              { name: 'Services', path: '/services' },
-              { name: 'Contact', path: '/contact' },
-              { name: 'Support', path: '/support' },
-              { name: 'Career', path: '/career' }
-            ].map((link) => (
+            {quickLinks.map((link) => (
               <li key={link.name}>
-                <Link 
-                  to={link.path} 
-                  className="text-gray-400 hover:text-[#e51c23] transition-colors font-medium text-sm"
-                >
+                <Link to={link.path} className="text-gray-400 hover:text-[#e51c23] transition-colors font-medium text-sm">
                   {link.name}
                 </Link>
               </li>
@@ -69,54 +197,48 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Links Column 2: Business & Support */}
-        <div className="md:col-span-4">
-          <h4 className="text-sm font-bold uppercase tracking-widest mb-8 text-gray-200">
-            Support & Identity
+        {/* Column 2: Compliance (NEW) */}
+        <div className="md:col-span-3 md:ml-auto">
+          <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-8 text-gray-500">
+            Compliance & Support
           </h4>
-          <div className="space-y-6">
-            <ul className="space-y-4 mb-6">
-               <li>
-                 <Link to="/corporate-credentials" className="text-gray-400 hover:text-[#e51c23] transition-colors font-medium text-sm italic">
-                   Corporate Credentials
-                 </Link>
-               </li>
-               <li>
-                 <Link to="/data-deletion" className="text-gray-400 hover:text-[#e51c23] transition-colors font-medium text-sm">
-                   Data Deletion Request
-                 </Link>
-               </li>
-            </ul>
+          <ul className="space-y-4">
+            {complianceLinks.map((link) => (
+              <li key={link.name}>
+                <Link to={link.path} className="text-gray-400 hover:text-[#e51c23] transition-colors font-medium text-sm">
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-            <a 
-              href="mailto:rasmtechcircle@gmail.com" 
-              className="flex items-center gap-4 group p-4 border border-gray-900 rounded-sm hover:border-[#e51c23]/30 transition-all"
-            >
-              <div style={{ color: brandRed }} className="text-xl">
-                <i className="fa-solid fa-envelope"></i>
+        {/* Column 3: Corporate Note */}
+        <div className="md:col-span-3 text-right hidden lg:block">
+           <div className="h-full flex flex-col justify-between">
+              <div className="space-y-2 opacity-20 group hover:opacity-100 transition-opacity">
+                 <p className="text-[10px] font-bold tracking-widest uppercase">Certified Operations</p>
+                 <p className="text-[10px] font-bold tracking-widest uppercase">Secure Infrastructure</p>
+                 <p className="text-[10px] font-bold tracking-widest uppercase">Global Standards</p>
               </div>
-              <div>
-                <p className="text-xs text-gray-500 uppercase font-bold tracking-tighter">Email Us</p>
-                <p className="text-sm text-gray-200 font-bold group-hover:text-[#e51c23] transition-colors">
-                  rasmtechcircle@gmail.com
-                </p>
-              </div>
-            </a>
-          </div>
+              <p style={{ color: brandRed }} className="text-[10px] font-bold uppercase tracking-[0.5em]">2026 Active</p>
+           </div>
         </div>
       </div>
 
-      {/* Bottom Footer: Legal Compliance Links */}
+      {/* Bottom Bar */}
       <div className="w-full px-6 md:px-12 pt-8 border-t border-gray-900">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-          <p className="text-gray-500 text-xs font-medium">
-            © {currentYear} <span className="text-gray-300">RAMSTECHCIRCLEOPC PVT LTD</span>. ALL RIGHTS RESERVED.
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-gray-500 text-[10px] font-bold tracking-widest uppercase">
+            © {currentYear} <span className="text-gray-300">RAMSTECHCIRCLEOPC PVT LTD</span>
           </p>
           
           <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-[10px] font-bold uppercase tracking-widest text-gray-500">
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms-of-use" className="hover:text-white transition-colors">Terms of Use</Link>
-            <Link to="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
+            {legalLinks.map((link) => (
+              <Link key={link.name} to={link.path} className="hover:text-white transition-colors">
+                {link.name}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
