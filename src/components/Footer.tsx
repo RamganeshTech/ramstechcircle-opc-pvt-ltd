@@ -135,7 +135,7 @@ export default function Footer() {
   const complianceLinks = [
     { name: 'App Privacy', path: '/app-privacy' },
     { name: 'Refund Policy', path: '/refund-cancellation-policy' },
-    { name: 'Official Disclaimer', path: '/disclaimer' },
+    { name: 'Disclaimer', path: '/disclaimer' },
     { name: 'Corporate Credentials', path: '/corporate-credentials' },
     { name: 'Data Deletion Request', path: '/data-deletion' },
     { name: 'HR Section', path: '/hr-section' }

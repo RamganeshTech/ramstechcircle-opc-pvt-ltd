@@ -1,24 +1,27 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
+import ScrollToTop from './components/ScrollToTop'
+
 import Header from './components/Header'
 import Footer from './components/Footer'
-import About from './pages/About'
-import Services from './pages/Services'
-import Contact from './pages/Contact'
-import PrivacyPolicy from './pages/PrivacyPolicy'
-import NotFound from './pages/NotFound'
-import TermsOfUse from './pages/TermsOfUse'
-import CookiePolicy from './pages/CookiePolicy'
-import CorporateCredentials from './pages/CorporateCredentials'
-import Support from './pages/Support'
-import DataDeletion from './pages/DataDeletion'
-import Careers from './pages/Career'
-import Disclaimer from './pages/Disclaimer'
-import AppPrivacy from './pages/AppPrivacy'
-import RefundPolicy from './pages/RefundPolicy'
-import ScrollToTop from './components/ScrollToTop'
-import HRSection from './pages/HRSection'
+import { lazy } from 'react'
+
+const About = lazy(()=> import('./pages/About')); 
+const Services = lazy(()=> import('./pages/Services')); 
+const Contact = lazy(()=> import('./pages/Contact')); 
+const PrivacyPolicy = lazy(()=> import('./pages/PrivacyPolicy')); 
+const NotFound = lazy(()=> import('./pages/NotFound')); 
+const TermsOfUse = lazy(()=> import('./pages/TermsOfUse')); 
+const CookiePolicy = lazy(()=> import('./pages/CookiePolicy')); 
+const CorporateCredentials = lazy(()=> import('./pages/CorporateCredentials')); 
+const Support = lazy(()=> import('./pages/Support')); 
+const DataDeletion = lazy(()=> import('./pages/DataDeletion')); 
+const Careers = lazy(()=> import('./pages/Career')); 
+const Disclaimer = lazy(()=> import('./pages/Disclaimer')); 
+const AppPrivacy = lazy(()=> import('./pages/AppPrivacy')); 
+const RefundPolicy = lazy(()=> import('./pages/RefundPolicy')); 
+const HRSection = lazy(()=> import('./pages/HRSection')); 
 
 function App() {
 
