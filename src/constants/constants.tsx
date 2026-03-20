@@ -1,0 +1,1 @@
+export const COMPANY_NAME = "Rams tech circle (OPC) Private Limited"

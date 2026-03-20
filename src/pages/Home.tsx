@@ -168,7 +168,7 @@ export default function Home() {
 
                         <h1 className="text-3xl md:text-7xl font-bold text-black leading-[1.1] tracking-tighter mb-10 font-poppins">
                             Elevating <br />
-                            <span className="text-gray-300">Spaces</span> & <span style={{ color: brandRed }}>Enterprises.</span>
+                            <span className="text-gray-300">Spaces</span> & <span style={{ color: brandRed }}>Enterprises</span>
                         </h1>
                         <p className="text-md md:text-xl text-gray-400 max-w-2xl leading-relaxed font-medium mb-12">
                             A diversified corporate ecosystem merging luxury interior architecture

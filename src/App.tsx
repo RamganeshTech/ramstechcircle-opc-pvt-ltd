@@ -18,6 +18,7 @@ import Disclaimer from './pages/Disclaimer'
 import AppPrivacy from './pages/AppPrivacy'
 import RefundPolicy from './pages/RefundPolicy'
 import ScrollToTop from './components/ScrollToTop'
+import HRSection from './pages/HRSection'
 
 function App() {
 
@@ -43,7 +44,8 @@ function App() {
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="/app-privacy" element={<AppPrivacy />} />
         <Route path="/refund-cancellation-policy" element={<RefundPolicy />} />
-        <Route path="/career" element={<Careers />} />
+        <Route path="/hr-section" element={<HRSection />} />
+        <Route path="/career" element={<Careers   />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -116,32 +116,19 @@ export default function Careers() {
     const [form, setForm] = useState<any>({
         fullName: "",
         phone: "",
-        // city: "",
-
+        salary: "",
         workType: "",
         workMode: "",
-        salary: "",
         timings: "",
         location: "",
-
         roles: "",
         skills: "",
         tasks: "",
         languages: "",
-
         projects: "",
-
-
-        // tenth: "",
-        // twelfth: "",
-        // ug: "",
-        // pg: "",
-
-
         academic: "",
-        vehicle: "",
         family: "",
-        // about: "",
+        vehicle: "",
         address: ""
     });
 
@@ -432,20 +419,7 @@ export default function Careers() {
                             />
                             {errors.vehicle && <p className="text-xs text-red-500">{errors.vehicle}</p>}
 
-                            {/* <Textarea
-                                label="Family Details (Parents & Siblings)"
-                                value={form.family}
-                                onChange={(e) => handleChange("family", e.target.value)}
-                                error={errors.family}
-                            /> */}
-
-                            {/* <Textarea
-                                label="About Yourself"
-                                value={form.about}
-                                onChange={(e) => handleChange("about", e.target.value)}
-                                error={errors.about}
-                            /> */}
-
+                           
                             <Textarea
                                 label="Residential Address"
                                 value={form.address}

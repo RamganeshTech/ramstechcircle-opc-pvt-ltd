@@ -162,7 +162,7 @@ export default function About() {
                         <div style={{ backgroundColor: brandRed }} className="w-8 h-[2px]"></div>
                         <span className="text-gray-400 text-xs font-bold uppercase tracking-[0.3em]">Corporate Ecosystem</span>
                     </div> */}
-                    <h1 className="text-5xl md:text-7xl font-bold text-black tracking-tight mb-8 leading-[1.1]">
+                    <h1 className="text-3xl md:text-5xl font-bold text-black tracking-tight mb-4 md:mb-8 leading-[1.1]">
                         {/* Diversified <span className="text-gray-300">Expertise.</span> <br />
                         Unified <span style={{ color: brandRed }}>Excellence.</span> */}
                         About <span style={{ color: brandRed, marginLeft:"15px" }}>Us</span>

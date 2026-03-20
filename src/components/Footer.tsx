@@ -10,7 +10,7 @@
 //     <footer className="w-full bg-black text-white pt-20 pb-10 font-poppins">
 //       {/* Upper Footer: Main Content */}
 //       <div className="w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-        
+
 //         {/* Brand Column */}
 //         <div className="md:col-span-5">
 //           <Link to="/" className="flex items-center gap-3 mb-6 group">
@@ -28,8 +28,8 @@
 //             infrastructure. We transform complex web requirements into 
 //             seamless digital experiences.
 //           </p>
-          
-         
+
+
 //         </div>
 
 //         {/* Links Column 1: Navigation */}
@@ -101,7 +101,7 @@
 //           <p className="text-gray-500 text-xs font-medium">
 //             © {currentYear} <span className="text-gray-300">RAMSTECHCIRCLEOPC PVT LTD</span>. ALL RIGHTS RESERVED.
 //           </p>
-          
+
 //           <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-[10px] font-bold uppercase tracking-widest text-gray-500">
 //             <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
 //             <Link to="/terms-of-use" className="hover:text-white transition-colors">Terms of Use</Link>
@@ -117,6 +117,7 @@
 
 // src/components/Footer.tsx
 import { Link } from 'react-router-dom';
+import { COMPANY_NAME } from '../constants/constants';
 
 export default function Footer() {
   const brandRed = "#e51c23";
@@ -136,7 +137,8 @@ export default function Footer() {
     { name: 'Refund Policy', path: '/refund-cancellation-policy' },
     { name: 'Official Disclaimer', path: '/disclaimer' },
     { name: 'Corporate Credentials', path: '/corporate-credentials' },
-    { name: 'Data Deletion Request', path: '/data-deletion' }
+    { name: 'Data Deletion Request', path: '/data-deletion' },
+    { name: 'HR Section', path: '/hr-section' }
   ];
 
   const legalLinks = [
@@ -148,25 +150,25 @@ export default function Footer() {
   return (
     <footer className="w-full bg-black text-white pt-20 pb-10 font-poppins border-t border-gray-900">
       <div className="w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-        
+
         {/* Brand Column */}
         <div className="md:col-span-4">
           <Link to="/" className="flex items-center gap-3 mb-6 group">
-            <img 
-              src="/logo.png" 
-              alt="Ramstechcircleopc Logo" 
-              className="h-10 w-auto transition-transform group-hover:scale-105" 
+            <img
+              src="/logo.png"
+              alt="Ramstechcircleopc Logo"
+              className="h-10 w-auto transition-transform group-hover:scale-105"
             />
             <span style={{ color: brandRed }} className="text-lg md:text-xl font-bold tracking-tight uppercase">
-              Rams tech circle opc
+              {COMPANY_NAME}
             </span>
           </Link>
           <p className="text-gray-400 max-w-sm text-sm leading-relaxed mb-8">
             Building high-performance digital infrastructure. We transform complex corporate requirements into seamless, secure software experiences.
           </p>
-          
-          <a 
-            href="mailto:ramstechcircle@gmail.com" 
+
+          <a
+            href="mailto:ramstechcircle@gmail.com"
             className="flex items-center gap-4 group p-4 border border-gray-900 rounded-sm hover:border-[#e51c23]/30 transition-all w-fit"
           >
             <div style={{ color: brandRed }} className="text-xl">
@@ -215,14 +217,14 @@ export default function Footer() {
 
         {/* Column 3: Corporate Note */}
         <div className="md:col-span-3 text-right hidden lg:block">
-           <div className="h-full flex flex-col justify-between">
-              <div className="space-y-2 opacity-20 group hover:opacity-100 transition-opacity">
-                 <p className="text-[10px] font-bold tracking-widest uppercase">Certified Operations</p>
-                 <p className="text-[10px] font-bold tracking-widest uppercase">Secure Infrastructure</p>
-                 <p className="text-[10px] font-bold tracking-widest uppercase">Global Standards</p>
-              </div>
-              <p style={{ color: brandRed }} className="text-[10px] font-bold uppercase tracking-[0.5em]">2026 Active</p>
-           </div>
+          <div className="h-full flex flex-col justify-between">
+            <div className="space-y-2 opacity-20 group hover:opacity-100 transition-opacity">
+              <p className="text-[10px] font-bold tracking-widest uppercase">Certified Operations</p>
+              <p className="text-[10px] font-bold tracking-widest uppercase">Secure Infrastructure</p>
+              <p className="text-[10px] font-bold tracking-widest uppercase">Global Standards</p>
+            </div>
+            <p style={{ color: brandRed }} className="text-[10px] font-bold uppercase tracking-[0.5em]">2026 Active</p>
+          </div>
         </div>
       </div>
 
@@ -232,7 +234,7 @@ export default function Footer() {
           <p className="text-gray-500 text-[10px] font-bold tracking-widest uppercase">
             © {currentYear} <span className="text-gray-300">RAMSTECHCIRCLEOPC PVT LTD</span>
           </p>
-          
+
           <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-[10px] font-bold uppercase tracking-widest text-gray-500">
             {legalLinks.map((link) => (
               <Link key={link.name} to={link.path} className="hover:text-white transition-colors">
